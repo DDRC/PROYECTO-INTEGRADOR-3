@@ -9,7 +9,7 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #2ee8ff;
 }
 
 .btn-primary {
@@ -68,4 +68,32 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+/*CUSTOM COLORS AND STYLES
+    ---------------------------------*/
+.navCoolMEd {
+    color: #4cb69f;
+    background-color: #5CE0D8;
+}
+.bodyCoolMed {
+    color: #5CE0D8;
+   background-color: #01345B;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    margin:auto;        
+}
+.backgroundphoto {
+    background-image: url('../Media/images/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin: auto;
+}
+.tablas>thead{
+    color:indianred;
+}
+.tablas>tbody{
+    color:darkorange;
 }
