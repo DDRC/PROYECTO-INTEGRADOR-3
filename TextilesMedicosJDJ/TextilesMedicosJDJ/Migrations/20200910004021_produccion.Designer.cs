@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TextilesMedicosJDJ.Data;
 
 namespace TextilesMedicosJDJ.Migrations
 {
     [DbContext(typeof(ventasContext))]
-    partial class ventasContextModelSnapshot : ModelSnapshot
+    [Migration("20200910004021_produccion")]
+    partial class produccion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

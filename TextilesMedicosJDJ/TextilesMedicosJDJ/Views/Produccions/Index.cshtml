@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TextilesMedicosJDJ.Models.Produccion>
+
+@{
+    ViewData["Title"] = "Ordenes de Producción";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Crear nueva Oden</a>
+</p>
+<table class="table tablas">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoProducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecioAproximado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaProducción)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CantidadProduccion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecioAproximado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaProducción)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CantidadProduccion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ProductoId">Editar Orden</a> |
+                <a asp-action="Details" asp-route-id="@item.ProductoId">Detailles de la orden</a> |
+                <a asp-action="Delete" asp-route-id="@item.ProductoId">Cancelar orden de procducción</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

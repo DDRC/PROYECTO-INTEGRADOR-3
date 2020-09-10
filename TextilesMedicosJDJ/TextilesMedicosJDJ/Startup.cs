@@ -12,6 +12,9 @@ using TextilesMedicosJDJ.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using TextilesMedicosJDJ.Services;
+//using WebPWrecover.Services;
 
 namespace TextilesMedicosJDJ
 {
@@ -34,9 +37,24 @@ namespace TextilesMedicosJDJ
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
-
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
             services.AddDbContext<ventasContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ventasContext")));
+            services.AddAuthentication()
+        .AddGoogle(options =>
+        {
+            IConfigurationSection googleAuthNSection =
+                Configuration.GetSection("Authentication:Google");
+
+            options.ClientId = googleAuthNSection["ClientId"];
+            options.ClientSecret = googleAuthNSection["ClientSecret"];
+        });
+         //.AddFacebook(facebookOptions =>
+         //    {
+         //        facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+         //        facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+         //    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

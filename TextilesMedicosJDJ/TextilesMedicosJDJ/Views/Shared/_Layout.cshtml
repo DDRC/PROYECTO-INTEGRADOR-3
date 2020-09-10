@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,6 +10,7 @@
     <title>@ViewData["Title"] - TextilesMedicosJDJ</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://kit.fontawesome.com/2624bd172c.js" crossorigin="anonymous"></script>
 </head>
 <body class="bodyCoolMed">
     <header>
@@ -18,20 +23,31 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
-                    <ul class="navbar-nav flex-grow-1">
-           
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ventas" asp-action="index">Nuestros Productos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="QuieneSomos">Quienes Somos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contactos
-                           </a>
-                        </li>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <ul class="navbar-nav flex-grow-1">
 
-                    </ul>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Produccions" asp-action="index">Producir...</a>
+                            </li>
+                        </ul>
+                    }
+                    else 
+                    {
+                <ul class="navbar-nav flex-grow-1">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="ventas" asp-action="index">Nuestros Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="QuieneSomos">Quienes Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Contactos</a>
+                    </li>
+
+                </ul>
+                    }
                 </div>
             </div>
         </nav>
@@ -44,7 +60,7 @@
 
     <footer class="border-top footer text-white-50">
         <div class="container">
-            &copy; 2020 - TextilesMedicosJDJ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - TextilesMedicosJDJ - <a asp-area="" asp-controller="Home" asp-action="Privacy">Nuestros Contactos</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

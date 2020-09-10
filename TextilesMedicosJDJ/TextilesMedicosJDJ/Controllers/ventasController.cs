@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,7 @@ namespace TextilesMedicosJDJ.Controllers
         {
             return View(await _context.ventas.ToListAsync());
         }
-
+        [Authorize]
         // GET: ventas/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
@@ -42,13 +43,13 @@ namespace TextilesMedicosJDJ.Controllers
 
             return View(ventas);
         }
-
+        [Authorize]
         // GET: ventas/Create
         public IActionResult Create()
         {
             return View();
         }
-
+        [Authorize]
         // POST: ventas/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -65,7 +66,7 @@ namespace TextilesMedicosJDJ.Controllers
             }
             return View(ventas);
         }
-
+        [Authorize]
         // GET: ventas/Edit/5
         public async Task<IActionResult> Edit(Guid? id)
         {
@@ -81,7 +82,7 @@ namespace TextilesMedicosJDJ.Controllers
             }
             return View(ventas);
         }
-
+        [Authorize]
         // POST: ventas/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -116,7 +117,7 @@ namespace TextilesMedicosJDJ.Controllers
             }
             return View(ventas);
         }
-
+        [Authorize]
         // GET: ventas/Delete/5
         public async Task<IActionResult> Delete(Guid? id)
         {
@@ -134,7 +135,7 @@ namespace TextilesMedicosJDJ.Controllers
 
             return View(ventas);
         }
-
+        [Authorize]
         // POST: ventas/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

@@ -97,3 +97,8 @@ body {
 .tablas>tbody{
     color:darkorange;
 }
+.colorLetras>p{
+    color:white;
+    font-family:FangSong;
+    font-size:20px;
+}

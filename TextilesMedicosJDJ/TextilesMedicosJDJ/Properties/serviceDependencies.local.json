@@ -7,6 +7,9 @@
     "mssql2": {
       "type": "mssql.local",
       "connectionId": "ventasContext"
+    },
+    "secrets1": {
+      "type": "secrets.user"
     }
   }
 }

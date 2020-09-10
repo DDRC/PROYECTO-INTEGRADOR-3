@@ -15,5 +15,7 @@ namespace TextilesMedicosJDJ.Data
         }
 
         public DbSet<TextilesMedicosJDJ.Models.ventas> ventas { get; set; }
+
+        public DbSet<TextilesMedicosJDJ.Models.Produccion> Produccion { get; set; }
     }
 }
